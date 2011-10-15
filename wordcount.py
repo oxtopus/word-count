@@ -1,5 +1,5 @@
 import os.path
-from multiprocessing import Queue, Pool
+from multiprocessing import Pool
 import sys
 import time
 from itertools import groupby
