@@ -1,0 +1,3 @@
+A simple demonstration of multiprocessing.Pool.map() using the classic word count problem. In this 
+case the problem is applied to each file in a specified directory indepentently in a quasi-MapReduce
+fashion.
