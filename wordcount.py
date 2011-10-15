@@ -10,9 +10,7 @@ from pprint import pprint
 pattern = re.compile('[\W_]+')
 
 def map_words(inp):
-    ''' Map key value pairs by splitting each line into words and yield each word as they key and
-        1 as the value 
-    '''
+    ''' Split each line into words, yield each word and '1' as the key-value pair '''
     for line in inp:
         for word in line.split(' '):
             yield pattern.sub('', word.strip()), 1
@@ -24,10 +22,8 @@ def reduce_word_counts(inp):
 
 def process_file(name):
     ''' Process one file'''
-    words=[]
-    results={}
     with open(name, 'r') as inp:
-        return (name, sorted(reduce_word_counts(sorted(map_words(inp))), key=itemgetter(1))[-10:])            
+        return name, sorted(reduce_word_counts(sorted(map_words(inp))), key=itemgetter(1))
 
 def process_files_parallel(arg, dirname, names):
     ''' Process each file in parallel via Poll.map() '''
